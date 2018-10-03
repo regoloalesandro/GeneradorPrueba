@@ -1,11 +1,8 @@
 {
     "require-dev": {
-        "phpunit/phpunit": "^6.3",
-        "satooshi/php-coveralls": "^1.0"
+        "phpunit/phpunit": "7"
     },
-    "autoload": {
-        "psr-4": {
-            "GeneradorPrueba\\": "src"
-        }
+    "require": {
+        "symfony/yaml": "^4.1"
     }
 }
