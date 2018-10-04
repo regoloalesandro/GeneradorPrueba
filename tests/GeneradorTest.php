@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class GeneradorTest extends TestCase {
     public function testGenerar() {
-        $generador = new Generador('preguntas.yml');
+        $generador = new Generador('./tests/preguntas.yml');
 
         $this->assertEquals($generador->getCantPreguntas(), 25);
     }
