@@ -3,26 +3,24 @@
 		require_once __DIR__ . '/../vendor/autoload.php';
 		use Symfony\Component\Yaml\Yaml;
 	class generador{
-		protected $cantPreguntas;
-		protected $preguntas;
-			public function __construct($cantPreguntas = 12){
-			public function __construct($file){
-				$this->preguntas = Yaml::parseFile($file);	
-		    	}
+	 protected $preguntasYaml;
+  	 protected $yaml;
+     protected $lecturaYaml;
+     protected $preguntas = [];
+     public function __construct($archivo){
+   		$this->yaml = new Parser();
+    	$this->value = $this->yaml->parse(file_get_contents('/home/ignaciopetru/Descargas/preguntas.yml'));
+    	$this->preguntasYaml = $this->value['preguntas'];
+  		}
+  	public function crearPreguntas(){
+    	$cantPreguntas = count($this->preguntasYaml);
+   		for ($i=0; $i < $cantPreguntas; $i++) {
+      		$this->preguntas[$i] = new Pregunta ($this->preguntasYaml[$i]);
+    	}
+    	echo var_dump( $this->preguntas);
+  	}
 
-		   	public function getCantPreguntas(){
-			return count($this->preguntas);
-		    	}
-
-			public function Tomarpreguntas(){
-        		$this->preguntas = $this->mezclar($this->preguntas['preguntas'],$this->getCantPreguntas());
-    			}
-
-    		public function mezclar($array, $cant){
-        		shuffle($array);
-        		for($i = count($array);$i>$cant;$i--){
-            		array_pop($array);
-       			}
-        		return $array;
-   			 }
-}
+	
+	public function mezclar(){
+       		shuffle($this->preguntas);
+	}
