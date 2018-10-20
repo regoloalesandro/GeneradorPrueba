@@ -17,7 +17,7 @@ use Symfony\Component\Yaml\Yaml;
     		$cantPreguntas = count($this->preguntasYaml);
    			for ($i=0; $i < $cantPreguntas; $i++) {
       			$this->preguntas[$i] = new Pregunta ($this->preguntasYaml[$i]);
-    	}
+    		}
     	echo var_dump( $this->preguntas);
 	
 		}
