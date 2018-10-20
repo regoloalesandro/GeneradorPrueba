@@ -1,5 +1,5 @@
 <?php
-		namespace MultipleChoice;
+		namespace GeneradorPrueba;
 		require_once __DIR__ . '/../vendor/autoload.php';
 		use Symfony\Component\Yaml\Yaml;
 	class generador{
