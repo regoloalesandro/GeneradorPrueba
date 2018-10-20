@@ -9,7 +9,7 @@
      protected $preguntas = [];
      public function __construct($archivo){
    		$this->yaml = new Parser();
-    	$this->value = $this->yaml->parse(file_get_contents('/home/ignaciopetru/Descargas/preguntas.yml'));
+    	$this->value = $this->yaml->parse(file_get_contents($archivo));
     	$this->preguntasYaml = $this->value['preguntas'];
   		}
   	public function crearPreguntas(){
