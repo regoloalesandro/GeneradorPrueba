@@ -16,10 +16,5 @@ class Generador{
 			$this->preguntas[$i] = new Pregunta ($preguntasYaml[$i]);
 		}	
 	}
-
-	public function mezclar(){
-		shuffle($this->preguntas);
-	}
-
 }
 
