@@ -14,7 +14,6 @@ class Generador{
 
 		for ($i=0; $i < count($preguntasYaml); $i++) {
 			$this->preguntas[$i] = new Pregunta ($preguntasYaml[$i]);
-		}	
+		}
 	}
 }
-
