@@ -1,5 +1,4 @@
 <?php
-
 namespace GeneradorPrueba;
 
 use PHPUnit\Framework\TestCase;
