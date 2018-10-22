@@ -20,4 +20,5 @@ class Generador {
     public function getCantPreguntas(){
         return count($this->preguntas);
     }
+	
 }
