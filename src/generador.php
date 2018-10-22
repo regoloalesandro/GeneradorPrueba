@@ -18,7 +18,6 @@ class Generador {
 	}
 
     public function getCantPreguntas(){
-        return count($this->preguntas);
+        return count($this->archivo['preguntas']);
     }
-	
 }
