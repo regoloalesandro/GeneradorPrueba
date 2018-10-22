@@ -8,8 +8,6 @@ class GeneradorTest extends TestCase {
     public function testGenerar() {
         $generador = new Generador('./tests/preguntas.yml');
         
-        $this->assertTrue(isset($generador));
-        $this->assertEquals($generador->getCantPreguntas(), 25);
-   
+        $this->assertTrue(isset($generador));   
     }
 }
