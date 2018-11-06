@@ -4,7 +4,7 @@ namespace GeneradorPrueba;
 
 use PHPUnit\Framework\TestCase;
 
-class Pregunta extends TestCase {
+class PreguntaTest extends TestCase {
     public function testGenerarPreg() {
         $preg_text = Yaml::parse("descripcion: El término pixel hace referencia a
         respuestas_correctas:
