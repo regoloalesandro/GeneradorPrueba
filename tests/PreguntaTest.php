@@ -3,6 +3,7 @@
 namespace GeneradorPrueba;
 
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Yaml\Yaml;
 
 class PreguntaTest extends TestCase {
     public function testGenerarPreg() {
