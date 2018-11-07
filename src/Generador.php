@@ -8,7 +8,12 @@ class Generador {
     protected $preguntas;
     
 	public function __construct($file){
-        $this->preguntas = Yaml::parseFile($file);	
+        $preg_text = Yaml::parseFile($file);
+        
+        for($i = 0; $i < count($preg_text['preguntas']); $i++){
+            $this->preguntas[$i] = new Pregunta($preg_text['preguntas'][$i]);
+        }
+
     }
 
     public function getCantPreguntas(){
