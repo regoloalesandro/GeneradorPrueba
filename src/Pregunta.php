@@ -6,14 +6,17 @@ use Symfony\Component\Yaml\Yaml;
 
 class Pregunta {
     protected $descripcion;
+    protected $respuestas;
     protected $respuestas_correctas;
     protected $respuestas_incorrectas;
     protected $ocultar_opcion_todas_las_anteriores=false;
     protected $ocultas_opcion_ninguna_de_las_anteriores=false;
     protected $texto_ninguna_de_las_anteriores = "Ninguna de las anteriores";
+    protected $numero;
 
     
-	public function __construct($info){
+	public function __construct($info, $num){
+        $this->numero = $num;
         $this->descripcion=$info["descripcion"];
         $this->respuestas_correctas = $info["respuestas_correctas"];
         $this->respuestas_incorrectas = $info["respuestas_incorrectas"];
@@ -30,6 +33,17 @@ class Pregunta {
             $this->texto_ninguna_de_las_anteriores = $info["texto_ninguna_de_las_anteriores"];
         }
 
+        $this->armarRespuestas();
+
+    }
+
+    public function armarRespuestas(){
+        $this->respuestas = array_merge($this->respuestas_correctas, $this->respuestas_incorrectas);
+        shuffle($this->respuestas);
+    }
+
+    public function getRespuestas(){
+        return $this->respuestas;
     }
 
     public function getDescripcion(){
@@ -42,5 +56,9 @@ class Pregunta {
 
     public function getRespIncorrectas(){
         return $this->respuestas_incorrectas;
+    }
+
+    public function getNumero(){
+        return $this->numero;
     }
 }

@@ -53,18 +53,29 @@
 
     <div class="questions">
         {% for preguntas in preguntas %}
-
         <div class='question'>
-            <div class='number'>1)______</div>
-            <div class='description'>Los ataques relacionados con suplantar webs de entidades bancarias se relacionan con</div>
+            <div class='number'>{{ preguntas.getNumero() }})______</div>
+            <div class='description'>{{ preguntas.getDescripcion() }}</div>
             <div class='options short'>
-            <div class='option'>A) Ataques de fuerza bruta.</div>
-            <div class='option'>B) Phishing.</div>
-            <div class='option'>C) Envio masivo de spam.</div>
-            <div class='option'>D) Sabotaje de routers.</div>
-            <div class='option'>E) Ataques de denegación de servicio.</div>
-            <div class='option'>F) Todas las anteriores.</div>
-            <div class='option'>G) Ninguna de las anteriores.</div>
+                    {% set letras = ['A', 'B', 'C', 'D', 'E', 'F'] %}
+                    {% set index = 0 %}
+
+
+                    {% for respuesta in preguntas.getRespuestas %}
+                        {% set letra = letras[index] %}                        
+                        <div class='option'>{{ letra }}) {{ respuesta }}</div>
+                        {% set index = index + 1 %}
+
+                    {% endfor %}
+                    
+                    {% set index = index + 1 %}
+                    {% set letra = letras[index] %}                        
+
+
+                    {% if preguntas.ocultar_opcion_todas_las_anteriores == False %}                            
+                        <div class='option'> {{ letra }}) Todas las anteriores.</div>  
+                    {% endif %}
+
             </div>
         </div>
 

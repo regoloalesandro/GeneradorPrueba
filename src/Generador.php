@@ -14,7 +14,7 @@ class Generador {
         shuffle($pregs);
 
         for($i = 0; $i < 10; $i++){
-            $this->preguntas[$i] = new Pregunta($pregs[$i]);
+            $this->preguntas[$i] = new Pregunta($pregs[$i], $i+1);
         }
 
     }
