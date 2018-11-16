@@ -32,6 +32,10 @@ class Pregunta {
 
     }
 
+    public function getDescripcion(){
+        return $this->descripcion;
+    }
+
     public function getRespCorrectas(){
         return $this->respuestas_correctas;
     }
