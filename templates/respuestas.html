@@ -79,7 +79,7 @@
 
 
                     {% if preguntas.ocultar_opcion_todas_las_anteriores == False %}       
-                        {% if preguntas.todas == True %}
+                        {% if preguntas.todas %}
                             <div class='option' style="color: red"> {{ letra }}) Todas las anteriores.</div> 
                         {% else %}
                             <div class='option'> {{ letra }}) Todas las anteriores.</div>  
