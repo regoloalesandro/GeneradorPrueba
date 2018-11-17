@@ -48,7 +48,7 @@
     <div class="header">
       <strong>Nombre y Apellido _____________________________________________ </strong>
       <strong>Evaluación número</strong>
-      <strong>TEMA 1</strong>
+      <strong>TEMA {{tema}}</strong>
     </div>
 
     <div class="questions">
@@ -62,8 +62,15 @@
 
 
                     {% for respuesta in preguntas.getRespuestas %}
-                        {% set letra = letras[index] %}                        
-                        <div class='option'>{{ letra }}) {{ respuesta }}</div>
+                        {% set letra = letras[index] %}
+
+                        {% if respuesta in preguntas.getRespCorrectas %}
+                            <div class='option'>{{ letra }}) {{ respuesta }}</div>
+
+                            {% else %}
+                            <div class='option' style="color: red">{{ letra }}) {{ respuesta }}</div>
+                        {% endif %}    
+
                         {% set index = index + 1 %}
 
                     {% endfor %}
