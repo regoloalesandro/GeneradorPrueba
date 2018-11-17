@@ -8,4 +8,4 @@ $twig = new Twig_Environment($loader);
 
 $prueba=$_SESSION['prueba'];
 
-echo $twig->render('prueba.html', ['preguntas' => $prueba->getPreguntas()] );
+echo $twig->render('prueba.html', ['preguntas' => $prueba->getPreguntas(), 'tema' => 1] );
