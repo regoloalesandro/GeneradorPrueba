@@ -1,14 +1,24 @@
 <?php
-namespace GeneradorPrueba;
+    require_once  './vendor/autoload.php';
 
-use Twig_Environment;
-use Twig_Loader_Filesystem;
+    session_start();
 
-require_once  './vendor/autoload.php';
+    $prueba = $_SESSION['prueba'];
+?>
+<html>
+    <head>
 
-$loader = new Twig_Loader_Filesystem('./templates');
-$twig = new Twig_Environment($loader);
+    </head>
+    <body>
+        <a href="generarPrueba.php"> Generar Prueba </a>
 
-$prueba = new Generador('./preguntas.yml');
+        <br/>
 
-echo $twig->render('index.html', ['preguntas' => $prueba->getPreguntas()] );
+        <a href="pruebaRender.php">Ver Prueba</a>
+        <a href="respuestasRender.php">Ver Respuestas</a>
+
+
+
+
+    </body>
+</html>
