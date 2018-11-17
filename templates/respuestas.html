@@ -64,11 +64,10 @@
                     {% for respuesta in preguntas.getRespuestas %}
                         {% set letra = letras[index] %}
 
-                        {% if respuesta in preguntas.getRespCorrectas %}
+                        {% if preguntas.todas == false and respuesta in preguntas.getRespCorrectas %}
+                            <div class='option' style="color: red">{{ letra }}) {{ respuesta }}</div>       
+                        {% else %}                        
                             <div class='option'>{{ letra }}) {{ respuesta }}</div>
-
-                            {% else %}
-                            <div class='option' style="color: red">{{ letra }}) {{ respuesta }}</div>
                         {% endif %}    
 
                         {% set index = index + 1 %}
@@ -79,8 +78,12 @@
                     {% set letra = letras[index] %}                        
 
 
-                    {% if preguntas.ocultar_opcion_todas_las_anteriores == False %}                            
-                        <div class='option'> {{ letra }}) Todas las anteriores.</div>  
+                    {% if preguntas.ocultar_opcion_todas_las_anteriores == False %}       
+                        {% if preguntas.todas %}
+                            <div class='option' style="color: red"> {{ letra }}) Todas las anteriores.</div> 
+                        {% else %}
+                            <div class='option'> {{ letra }}) Todas las anteriores.</div>  
+                        {% endif %}
                     {% endif %}
 
                     {% set index = index + 1 %}
@@ -88,12 +91,20 @@
 
                     {% if preguntas.ocultas_opcion_ninguna_de_las_anteriores == False %}   
 
-                        {% if preguntas.texto_ninguna_de_las_anteriores != NULL %}   
-                            <div class='option'> {{ letra }}) {{ preguntas.texto_ninguna_de_las_anteriores }}.</div>                             
+                        {% if preguntas.ninguna %}
+                            {% if preguntas.texto_ninguna_de_las_anteriores != NULL %}   
+                                <div class='option' style="color: red"> {{ letra }}) {{ preguntas.texto_ninguna_de_las_anteriores }}.</div>                             
+                            {% else %}
+                                <div class='option' style="color: red"> {{ letra }}) Ninguna de las anteriores.</div>  
+                            {% endif %}
                         {% else %}
-                            <div class='option'> {{ letra }}) Ninguna de las anteriores.</div>  
-                        {% endif %}
-                        
+                            {% if preguntas.texto_ninguna_de_las_anteriores != NULL %}   
+                                <div class='option'> {{ letra }}) {{ preguntas.texto_ninguna_de_las_anteriores }}.</div>                             
+                            {% else %}
+                                <div class='option'> {{ letra }}) Ninguna de las anteriores.</div>  
+                            {% endif %} 
+                        {% endif %}     
+
                     {% endif %}
 
             </div>
