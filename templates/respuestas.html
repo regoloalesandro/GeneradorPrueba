@@ -65,10 +65,10 @@
                         {% set letra = letras[index] %}
 
                         {% if respuesta in preguntas.getRespCorrectas %}
-                            <div class='option'>{{ letra }}) {{ respuesta }}</div>
+                            <div class='option' style="color: red">{{ letra }}) {{ respuesta }}</div>                        
+                        {% else %}
 
-                            {% else %}
-                            <div class='option' style="color: red">{{ letra }}) {{ respuesta }}</div>
+                        <div class='option'>{{ letra }}) {{ respuesta }}</div>
                         {% endif %}    
 
                         {% set index = index + 1 %}
