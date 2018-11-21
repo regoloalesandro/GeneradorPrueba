@@ -137,6 +137,9 @@
             .button--size-s {
                 font-size: 14px;
             }
+            .button--size-l {
+                font-size: 25px;
+            }
             }
 
             /* Typography and Roundedness */
@@ -160,7 +163,7 @@
                 border-radius: 15px;
             }
             .button--round-l {
-                border-radius: 40px;
+                border-radius: 60px;
             }
 
             /* Borders */
@@ -181,16 +184,32 @@
                 margin-top:-150px;
 
             }
+            .centrar2{
+                position: absolute;
+                /*nos posicionamos en el centro del navegador*/
+                top:20%;
+                left:50%;
+                /*determinamos una anchura*/
+                /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+                margin-left:-200px;
+                /*determinamos una altura*/
+                height:300px;
+                /*indicamos que el margen superior, es la mitad de la altura*/
+                margin-top:-150px;
+
+            }
+            .centro{
+                text-align: center;
+            }
         </style>
     </head>
     <body >
-    <div class="centrar">
-            <div >
-                <div class="centrar">
-                <a href="generarPrueba.php" class="button button--moema button--border-thick button--size-s">Generar Pruebas</a>
+    <h1 class=centro>Generado de prubas multiple choice</h1>
+    <div class="centrar">  
+                <div class="centrar2">
+                <a href="generarPrueba.php" class="button button--moema button--border-thick button--size-l">Generar Pruebas</a>
                 </div>
                 <br></br>
-                
                 <h1>Tema 1</h1>
                 <a href="pruebaRender.php" class="button button--moema button--border-thick button--size-s">Ver Prueba</a>
                 <a href="respuestasRender.php" class="button button--moema button--border-thick button--size-s">Ver Respuestas</a>
@@ -198,7 +217,7 @@
                 <h1>Tema 2</h2>
                 <a href="prueba2Render.php" class="button button--moema button--border-thick button--size-s">Ver Prueba</a>
                 <a href="respuestas2Render.php" class="button button--moema button--border-thick button--size-s">Ver Respuestas</a>
-            </div>
+
         </div>
     </body>
 </html>
