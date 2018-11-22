@@ -51,6 +51,10 @@ class Pregunta {
         return $this->respuestas;
     }
 
+    public function getCantRespuestas(){
+        return count($this->respuestas);
+    }
+
     public function getNumero(){
         return $this->numero;
     }
